@@ -45,5 +45,7 @@ namespace ComplexeBankSystem
                 throw new ArgumentException("Client déjà existant", nameof(client));
             }
         }
+
+        public void RemoveClient(Player client) => throw new NotImplementedException();
     }
 }
