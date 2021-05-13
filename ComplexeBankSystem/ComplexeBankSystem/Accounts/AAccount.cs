@@ -5,8 +5,10 @@ namespace ComplexeBankSystem.Accounts
 {
     abstract class AAccount : ASomethingAmount
     {
+        #region Properties
         public string Name { get; private set; }
         public AccountType AccountType { get; private set; }
+        #endregion
 
         public AAccount(string name, double initialAmount, AccountType accountType)
         {
