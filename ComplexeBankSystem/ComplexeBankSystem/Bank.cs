@@ -47,5 +47,9 @@ namespace ComplexeBankSystem
         }
 
         public void RemoveClient(Player client) => throw new NotImplementedException();
+
+        public void AddOwner(Player owner) => throw new NotImplementedException();
+
+        public void RemoveOwner(Player owner) => throw new NotImplementedException();
     }
 }
