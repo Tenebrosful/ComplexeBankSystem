@@ -12,7 +12,7 @@ namespace ComplexeBankSystem
         private readonly List<Player> _owners;
 
         public static IReadOnlyList<Bank> Banks => _banks;
-        public IReadOnlyDictionary<Player, AAccount> Clients => _clients;
+        public IReadOnlyDictionary<Player, List<AAccount>> Clients => _clients;
         public IReadOnlyList<Player> Owners => _owners;
 
         public string Name { get; private set; }
@@ -33,13 +33,13 @@ namespace ComplexeBankSystem
             Name = name; _owners = owners; _clients = new Dictionary<Player, AAccount>();
         }
 
-        public void NewClient(Player client)
+        public void NewClient(Player client, AAccount account)
         {
             if (client == null) throw new ArgumentNullException(nameof(client));
 
             try
             {
-                _clients.Add(client, null);
+                _clients.Add(client, new List<AAccount>() { account });
             }
             catch (ArgumentException)
             {
