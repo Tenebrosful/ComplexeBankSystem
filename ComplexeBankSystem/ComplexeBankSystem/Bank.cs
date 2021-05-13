@@ -10,6 +10,14 @@ namespace ComplexeBankSystem
         public static IReadOnlyList<Bank> Banks { get; private set; } = _banks;
         private Dictionary<Player, Account> _clients;
         public IReadOnlyDictionary<Player, Account> Clients { get; private set; }
+        /// <summary>
+        /// Sommme de l'argent présent sur tous les comptes de la banque
+        /// </summary>
+        public double TotalAccountMoney { get; private set; }
+        /// <summary>
+        /// Argent réel que la Banque possède (L'argent maximum que les clients peuvent récupérer s'ils retirent tous leur argent en même temps)
+        /// </summary>
+        public double BankMoney { get; private set; }
 
         public Bank(string name)
         {
