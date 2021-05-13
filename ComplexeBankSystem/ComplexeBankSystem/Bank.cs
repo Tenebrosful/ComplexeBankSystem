@@ -7,11 +7,11 @@ namespace ComplexeBankSystem
     {
         #region Properties
         private static readonly List<Bank> _banks = new();
-        private readonly Dictionary<Player, Account> _clients;
+        private readonly Dictionary<Player, AAccount> _clients;
         private readonly List<Player> _owners;
 
         public static IReadOnlyList<Bank> Banks => _banks;
-        public IReadOnlyDictionary<Player, Account> Clients => _clients;
+        public IReadOnlyDictionary<Player, AAccount> Clients => _clients;
         public IReadOnlyList<Player> Owners => _owners;
 
         public string Name { get; private set; }
@@ -29,7 +29,7 @@ namespace ComplexeBankSystem
 
         public Bank(string name, List<Player> owners)
         {
-            Name = name; _owners = owners; _clients = new Dictionary<Player, Account>();
+            Name = name; _owners = owners; _clients = new Dictionary<Player, AAccount>();
         }
 
         public void NewClient(Player client)
