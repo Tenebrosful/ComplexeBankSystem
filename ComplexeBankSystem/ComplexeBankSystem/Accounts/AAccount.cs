@@ -1,5 +1,5 @@
-﻿using System;
-using ComplexeBankSystem.Accounts.Enums;
+﻿using ComplexeBankSystem.Accounts.Enums;
+using System;
 
 namespace ComplexeBankSystem.Accounts
 {

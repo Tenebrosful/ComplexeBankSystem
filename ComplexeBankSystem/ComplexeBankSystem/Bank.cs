@@ -1,6 +1,6 @@
-﻿using System;
+﻿using ComplexeBankSystem.Accounts;
+using System;
 using System.Collections.Generic;
-using ComplexeBankSystem.Accounts;
 
 namespace ComplexeBankSystem
 {
@@ -16,7 +16,7 @@ namespace ComplexeBankSystem
         public IReadOnlyList<Player> Owners => _owners;
 
         public string Name { get; private set; }
-        
+
         /// <summary>
         /// Argent réel que la Banque possède (L'argent maximum que les clients peuvent récupérer s'ils retirent tous leur argent en même temps)
         /// </summary>

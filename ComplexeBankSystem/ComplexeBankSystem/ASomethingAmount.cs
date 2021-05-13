@@ -10,7 +10,7 @@ namespace ComplexeBankSystem
 
         public double Add(double amount)
         {
-            if (amount <= 0) throw new ArgumentException("Doit être supérieur ou égal à 0",nameof(amount));
+            if (amount <= 0) throw new ArgumentException("Doit être supérieur ou égal à 0", nameof(amount));
 
             return Amount += amount;
         }
