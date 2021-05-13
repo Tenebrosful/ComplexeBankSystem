@@ -15,5 +15,20 @@ namespace ComplexeBankSystem
         {
             Name = name; Clients = _clients;
         }
+
+        public void NewClient(Player client)
+        {
+            if (client == null) throw new ArgumentNullException(nameof(client));
+            if (_clients == null) _clients = new Dictionary<Player, Account>();
+
+            try
+            {
+                _clients.Add(client, null);
+            }
+            catch (ArgumentException)
+            {
+                throw new ArgumentException("Client déjà existant", nameof(client));
+            }
+        }
     }
 }
