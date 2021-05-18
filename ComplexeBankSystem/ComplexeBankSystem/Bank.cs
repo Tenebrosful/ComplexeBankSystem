@@ -66,5 +66,6 @@ namespace ComplexeBankSystem
         } 
 
         public void RemoveOwner(Player owner) => throw new NotImplementedException();
+        public bool isProfitable() => BankMoney - TotalAccountMoney > 0;
     }
 }
