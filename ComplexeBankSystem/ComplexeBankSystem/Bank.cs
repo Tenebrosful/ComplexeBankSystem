@@ -9,12 +9,12 @@ namespace ComplexeBankSystem
         #region Properties
         private static readonly List<Bank> _banks = new();
         private readonly Dictionary<Player, List<AAccount>> _clients;
-        private readonly List<Player> _owners;
+        private readonly HashSet<Player> _owners;
         private readonly List<AccountFormula> _accountFormulas;
 
         public static IReadOnlyList<Bank> Banks => _banks;
         public IReadOnlyDictionary<Player, List<AAccount>> Clients => _clients;
-        public IReadOnlyList<Player> Owners => _owners;
+        public IReadOnlySet<Player> Owners => _owners;
         public IReadOnlyList<AccountFormula> AccountFormulas => _accountFormulas;
 
         public string Name { get; private set; }
@@ -30,7 +30,7 @@ namespace ComplexeBankSystem
         public double TotalAccountMoney { get; private set; }
         #endregion
 
-        public Bank(string name, List<Player> owners)
+        public Bank(string name, HashSet<Player> owners)
         {
             Name = name; _owners = owners; _clients = new(); _accountFormulas = new();
         }
