@@ -52,6 +52,15 @@ namespace ComplexeBankSystem
         public void RemoveClient(Player client) => throw new NotImplementedException();
 
         public void AddOwner(Player owner) => throw new NotImplementedException();
+        public void AddOwner(Player owner) {
+            if (owner == null) throw new ArgumentNullException(nameof(owner));
+
+            var oldCount = _owners.Count;
+
+            _owners.Add(owner);
+
+            if (oldCount == _owners.Count) throw new ArgumentException("Le joueur est déjà propriétaire", nameof(owner));
+        } 
 
         public void RemoveOwner(Player owner) => throw new NotImplementedException();
     }
