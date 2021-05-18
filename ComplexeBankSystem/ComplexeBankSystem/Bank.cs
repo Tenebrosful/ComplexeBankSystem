@@ -56,16 +56,24 @@ namespace ComplexeBankSystem
             if (owner == null) throw new ArgumentNullException(nameof(owner));
             if (!_owners.Add(owner)) throw new ArgumentException("Le joueur est déjà propriétaire", nameof(owner));
         }
+
+        public void RemoveOwner(Player owner)
+        {
             if (owner == null) throw new ArgumentNullException(nameof(owner));
+            if (!_owners.Contains(owner)) throw new ArgumentException("Le joueur n'est pas propriétaire", nameof(owner));
 
-            var oldCount = _owners.Count;
+            double x = (BankMoney - TotalAccountMoney) / _owners.Count;
 
-            _owners.Add(owner);
+            if (!isProfitable())
+                if (owner.Money < Math.Abs(x)) throw new NotEnoughException(owner.Money, Math.Abs(x));
 
-            if (oldCount == _owners.Count) throw new ArgumentException("Le joueur est déjà propriétaire", nameof(owner));
-        } 
+            if (!_owners.Remove(owner))
+            {
+                BankMoney += x;
+                owner.ChangeMoney(x);
+            }
+        }
 
-        public void RemoveOwner(Player owner) => throw new NotImplementedException();
         public bool isProfitable() => BankMoney - TotalAccountMoney > 0;
     }
 }
